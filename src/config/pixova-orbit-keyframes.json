@@ -1,0 +1,143 @@
+{
+  "version": 9,
+  "description": "Keyframes: world, scale, optional rotation (x,y,z radians) + overlayOpacity. Rotations blend with scroll; rig also adds procedural Z wobble from defaults.animation.rig.",
+
+  "defaults": {
+    "worldXLimits": {
+      "min": { "compact": -3.5, "desktop": -3.0 },
+      "max": { "compact": 3.5, "desktop": 3.5 }
+    },
+    "overlay": {
+      "dprCap": { "compact": 1.45, "desktop": 2 }
+    },
+    "camera": {
+      "fov": { "compact": 45, "desktop": 38.5 },
+      "position": {
+        "x": 0,
+        "y": { "compact": -0.12, "desktop": 0 },
+        "z": { "compact": 11.05, "desktop": 9 }
+      }
+    },
+    "animation": {
+      "depthBlend_edges": [0, 0.22],
+      "minProjectsForClusterWave": 2,
+      "rig": {
+        "zSinAmp": { "compact": 0.056, "desktop": 0.075 },
+        "zTravelPiMul": 3,
+        "zTimeFreq": 0.15
+      },
+      "cluster": {
+        "yawPerSec": { "compact": 0.068, "desktop": 0.098 },
+        "yDepthSinAmp": 0.22,
+        "yDepthRadScale": 6.283185307179586,
+        "xPiSlope": { "compact": 0.24, "desktop": 0.16 },
+        "xSinAmp": { "compact": 0.068, "desktop": 0.095 },
+        "xSinFq": 0.25,
+        "zSinAmp": { "compact": 0.048, "desktop": 0.066 },
+        "zSinFq": 0.13,
+        "zPagePhase": 5,
+        "bobTravelMix": 0.25,
+        "bobAmp": { "compact": 0.065, "desktop": 0.11 }
+      },
+      "outerRing": {
+        "zPerSec": 0.068,
+        "zTravelPi": 2.08,
+        "ySinAmp": { "compact": 0.12, "desktop": 0.16 },
+        "ySinFq": 0.17,
+        "ySlopeCompact": 0.42,
+        "ySlopeDesktop": 0.12,
+        "yWPiFrac": 0.085,
+        "xSinAmp": 0.065,
+        "xWPiM": 1,
+        "xSinFq": 0.08
+      },
+      "knot": {
+        "zSinAmp": { "compact": 0.48, "desktop": 0.58 },
+        "zWPhase": 0.06,
+        "zSinPiMul": 2,
+        "zSinFq": 0.05,
+        "yCosAmp": { "compact": 0.38, "desktop": 0.48 },
+        "yWPhase": 0.02,
+        "yCosFq": -0.04
+      },
+      "crossSlide": {
+        "minWorldXDelta": 2.5,
+        "arcY": { "compact": 0.12, "desktop": 0.095 },
+        "arcZ": { "compact": 0.06, "desktop": 0.048 },
+        "scaleDip": { "compact": 0.085, "desktop": 0.075 },
+        "rigZCrossAmp": { "compact": 0.11, "desktop": 0.09 }
+      }
+    }
+  },
+
+  "keyframes": [
+    {
+      "label": "1 — Hero: right",
+      "untilWorkNormalized": 0.26,
+      "pose": {
+        "worldX_side": "max",
+        "worldY": { "compact": -0.58, "desktop": -0.22 },
+        "worldZ": { "compact": -1.2, "desktop": -1.05 },
+        "scale": { "compact": 1.0, "desktop": 0.8 },
+        "rotation": { "x": 2, "y": 2, "z": 2 }
+      }
+    },
+    {
+      "label": "2 — First row: left",
+      "untilWorkNormalized": 0.45,
+      "pose": {
+        "worldX_side": "min",
+        "worldY": { "compact": -0.42, "desktop": -0.12 },
+        "worldZ": { "compact": -1.45, "desktop": -1.32 },
+        "scale": { "compact": 0.2, "desktop": 0.2 },
+        "rotation": { "x": 0, "y": 0, "z": 0 }
+      }
+    },
+    {
+      "label": "3 — Second row: right",
+      "untilWorkNormalized": 0.6,
+      "pose": {
+        "worldX_side": "max",
+        "worldY": { "compact": -0.36, "desktop": -0.09 },
+        "worldZ": { "compact": -1.35, "desktop": -1.22 },
+        "scale": { "compact": 1.0, "desktop": 1.0 },
+        "rotation": { "x": 2, "y": 2, "z": 2 }
+      }
+    },
+    {
+      "label": "4 — Third row: left",
+      "untilWorkNormalized": 0.8,
+      "pose": {
+        "worldX_side": "min",
+        "worldY": { "compact": -0.32, "desktop": -0.07 },
+        "worldZ": { "compact": -1.48, "desktop": -1.35 },
+        "scale": { "compact": 1.0, "desktop": 1.0 },
+        "rotation": { "x": 0, "y": 0, "z": 0 }
+      }
+    },
+    {
+      "label": "5 — End: right (full opacity)",
+      "untilWorkNormalized": 0.92,
+      "pose": {
+        "worldX_side": "max",
+        "worldY": { "compact": -0.28, "desktop": -0.05 },
+        "worldZ": { "compact": -1.38, "desktop": -1.25 },
+        "scale": { "compact": 1.0, "desktop": 1.0 },
+        "overlayOpacity": 1,
+        "rotation": { "x": 2, "y": 2, "z": 2 }
+      }
+    },
+    {
+      "label": "6 — Fade canvas out",
+      "untilWorkNormalized": 1,
+      "pose": {
+        "worldX_side": "max",
+        "worldY": { "compact": -0.28, "desktop": -0.05 },
+        "worldZ": { "compact": -1.38, "desktop": -1.25 },
+        "scale": { "compact": 1.0, "desktop": 1.0 },
+        "overlayOpacity": 0,
+        "rotation": { "x": 0, "y": 0, "z": 0 }
+      }
+    }
+  ]
+}

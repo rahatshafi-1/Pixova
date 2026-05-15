@@ -9,8 +9,19 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import faviconUrl from "../assets/logo.jpeg?url";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+
+/**
+ * Link previews (iMessage, Slack, etc.) read og:image / twitter:image.
+ * Root-relative href is resolved by crawlers against the shared page URL.
+ * Set VITE_PUBLIC_SITE_URL if previews must use a fixed canonical origin.
+ */
+function openGraphImageUrl(assetHref: string): string {
+  const base = (import.meta.env.VITE_PUBLIC_SITE_URL as string | undefined)?.replace(/\/$/, "") ?? "";
+  return base ? new URL(assetHref, base).href : assetHref;
+}
 
 function NotFoundComponent() {
   return (
@@ -70,25 +81,38 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pixova — Smart Tech for Small Businesses" },
-      { name: "description", content: "Pixova builds websites, apps, and AI-powered automations that help small businesses grow faster and operate smarter." },
-      { name: "author", content: "Pixova" },
-      { property: "og:title", content: "Pixova — Smart Tech for Small Businesses" },
-      { property: "og:description", content: "Websites, apps, AI & service automations for small businesses." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
+  head: () => {
+    const ogImage = openGraphImageUrl(faviconUrl);
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: "Pixova — Smart Tech for Small Businesses" },
+        { name: "description", content: "Pixova builds websites, apps, and AI-powered automations that help small businesses grow faster and operate smarter." },
+        { name: "author", content: "Pixova" },
+        { property: "og:title", content: "Pixova — Smart Tech for Small Businesses" },
+        { property: "og:description", content: "Websites, apps, AI & service automations for small businesses." },
+        { property: "og:type", content: "website" },
+        { property: "og:image", content: ogImage },
+        { property: "og:image:type", content: "image/jpeg" },
+        { property: "og:image:alt", content: "Pixova" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: ogImage },
+        { name: "twitter:image:alt", content: "Pixova" },
+      ],
+      links: [
+        {
+          rel: "icon",
+          type: "image/jpeg",
+          href: faviconUrl,
+        },
+        {
+          rel: "stylesheet",
+          href: appCss,
+        },
+      ],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
