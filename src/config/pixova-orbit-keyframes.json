@@ -1,5 +1,5 @@
 {
-  "version": 9,
+  "version": 10,
   "description": "Keyframes: world, scale, optional rotation (x,y,z radians) + overlayOpacity. Rotations blend with scroll; rig also adds procedural Z wobble from defaults.animation.rig.",
 
   "defaults": {
@@ -52,13 +52,13 @@
         "xSinFq": 0.08
       },
       "knot": {
-        "zSinAmp": { "compact": 0.48, "desktop": 0.58 },
+        "zSinAmp": { "compact": 0.32, "desktop": 0.38 },
         "zWPhase": 0.06,
         "zSinPiMul": 2,
-        "zSinFq": 0.05,
-        "yCosAmp": { "compact": 0.38, "desktop": 0.48 },
+        "zSinFq": 0.045,
+        "yCosAmp": { "compact": 0.26, "desktop": 0.32 },
         "yWPhase": 0.02,
-        "yCosFq": -0.04
+        "yCosFq": -0.035
       },
       "crossSlide": {
         "minWorldXDelta": 2.5,

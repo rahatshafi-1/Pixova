@@ -1,12 +1,15 @@
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Sparkles } from "@react-three/drei";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { type MotionValue, motion, useMotionValue, useReducedMotion } from "framer-motion";
 import * as THREE from "three";
 
 import orbitConfig from "@/config/pixova-orbit-keyframes.json";
 
-const MAT_PURPLE = new THREE.Color("#9055e8");
-const MAT_GLOW = new THREE.Color("#e8d4ff");
+/** Cool graphite + periwinkle accent: studio-grade, not neon demo purple. */
+const MAT_CORE = new THREE.Color("#252a3d");
+const MAT_ACCENT = new THREE.Color("#8b9fe8");
+const MAT_RIM = new THREE.Color("#dce4ff");
 
 const MOTION_RESUME = 0.42;
 const PAGE_SCROLL_ONSET = 0.09;
@@ -202,6 +205,16 @@ function OrbitalLattice({
   const minNp = A.minProjectsForClusterWave;
   const projN = Math.max(projectCount, minNp);
 
+  const coreGeo = useMemo(() => new THREE.IcosahedronGeometry(0.96, 1), []);
+  const coreEdgeGeo = useMemo(() => new THREE.EdgesGeometry(coreGeo, 20), [coreGeo]);
+
+  useEffect(() => {
+    return () => {
+      coreGeo.dispose();
+      coreEdgeGeo.dispose();
+    };
+  }, [coreGeo, coreEdgeGeo]);
+
   useFrame(({ clock }) => {
     const dt = Math.min(clock.getDelta(), 0.05);
     const gRaw = clamp01(scrollYProgress.get());
@@ -296,36 +309,47 @@ function OrbitalLattice({
       <group ref={rigRoot}>
         <group ref={cluster}>
           <group ref={knot}>
-            <mesh>
-              <torusKnotGeometry args={[1, 0.32, 200, 32, 2, 3]} />
-              <meshStandardMaterial
-                color={MAT_PURPLE}
-                metalness={0.88}
-                roughness={0.18}
-                emissive={MAT_PURPLE}
-                emissiveIntensity={0.45}
+            <mesh scale={0.38}>
+              <octahedronGeometry args={[1, 0]} />
+              <meshPhysicalMaterial
+                color={MAT_ACCENT}
+                metalness={0.9}
+                roughness={0.14}
+                clearcoat={1}
+                clearcoatRoughness={0.06}
+                emissive={MAT_ACCENT}
+                emissiveIntensity={0.05}
               />
             </mesh>
-            <mesh scale={1.04}>
-              <torusKnotGeometry args={[1, 0.32, 200, 32, 2, 3]} />
-              <meshBasicMaterial
-                color={MAT_GLOW}
-                wireframe
+            <mesh geometry={coreGeo}>
+              <meshPhysicalMaterial
+                color={MAT_CORE}
+                metalness={0.96}
+                roughness={0.16}
+                clearcoat={1}
+                clearcoatRoughness={0.1}
+                emissive={MAT_ACCENT}
+                emissiveIntensity={0.035}
+              />
+            </mesh>
+            <lineSegments geometry={coreEdgeGeo} scale={1.008}>
+              <lineBasicMaterial
+                color={MAT_RIM}
                 transparent
-                opacity={0.38}
+                opacity={0.32}
                 depthWrite={false}
               />
-            </mesh>
+            </lineSegments>
           </group>
 
           <group ref={outerRing}>
             <mesh rotation={[Math.PI / 2.4, 0, 0]}>
-              <torusGeometry args={[1.92, 0.026, 32, 200]} />
-              <meshBasicMaterial color={MAT_GLOW} transparent opacity={0.55} />
+              <torusGeometry args={[1.92, 0.018, 32, 200]} />
+              <meshBasicMaterial color={MAT_RIM} transparent opacity={0.38} depthWrite={false} />
             </mesh>
             <mesh rotation={[Math.PI / 2.1, 0.4, 0.3]}>
-              <torusGeometry args={[2.55, 0.015, 16, 120]} />
-              <meshBasicMaterial color={MAT_PURPLE} transparent opacity={0.22} />
+              <torusGeometry args={[2.55, 0.012, 16, 120]} />
+              <meshBasicMaterial color={MAT_ACCENT} transparent opacity={0.14} depthWrite={false} />
             </mesh>
           </group>
 
@@ -339,25 +363,34 @@ function OrbitalLattice({
             <mesh key={`n-${i}`} position={[x, y, z]}>
               <icosahedronGeometry args={[i % 2 === 0 ? 0.085 : 0.055, 0]} />
               <meshStandardMaterial
-                color={MAT_GLOW}
-                emissive={MAT_GLOW}
-                emissiveIntensity={1.35}
-                metalness={0.4}
-                roughness={0.35}
+                color={MAT_RIM}
+                emissive={MAT_ACCENT}
+                emissiveIntensity={0.55}
+                metalness={0.55}
+                roughness={0.28}
               />
             </mesh>
           ))}
+
+          <Sparkles
+            count={viewportCompact ? 32 : 52}
+            scale={5.4}
+            size={viewportCompact ? 1.5 : 2}
+            speed={0.28}
+            opacity={0.42}
+            color="#c5d4ff"
+          />
         </group>
       </group>
-      <ambientLight intensity={0.22} />
-      <pointLight position={[6, 4, 6]} intensity={52} color="#c9a8ff" distance={38} decay={2} />
-      <pointLight position={[-10, -2, -2]} intensity={38} color="#6b4cff" distance={30} decay={2} />
+      <ambientLight intensity={0.18} color="#c8d2ee" />
+      <pointLight position={[6, 4, 6]} intensity={40} color="#e2ebff" distance={40} decay={2} />
+      <pointLight position={[-10, -2, -2]} intensity={26} color="#6a7fd4" distance={32} decay={2} />
       <spotLight
         position={[0, 8, 12]}
         angle={0.52}
         penumbra={0.92}
-        intensity={22}
-        color="#f5f2ff"
+        intensity={16}
+        color="#f4f6ff"
         castShadow={false}
       />
     </>
