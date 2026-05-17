@@ -1,0 +1,119 @@
+import { T as jsxRuntimeExports } from "./server-E0KvAQjM.js";
+import { F as FadeIn, S as SectionLabel, a as Section } from "./Section-B4KusVYJ.js";
+import { C as CtaBanner } from "./CtaBanner-DPmpjCMp.js";
+import { c as createLucideIcon } from "./router-Ck0Q69hq.js";
+import "node:async_hooks";
+import "node:stream/web";
+import "node:stream";
+const Brain = createLucideIcon("Brain", [
+  [
+    "path",
+    {
+      d: "M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z",
+      key: "l5xja"
+    }
+  ],
+  [
+    "path",
+    {
+      d: "M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z",
+      key: "ep3f8r"
+    }
+  ],
+  ["path", { d: "M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4", key: "1p4c4q" }],
+  ["path", { d: "M17.599 6.5a3 3 0 0 0 .399-1.375", key: "tmeiqw" }],
+  ["path", { d: "M6.003 5.125A3 3 0 0 0 6.401 6.5", key: "105sqy" }],
+  ["path", { d: "M3.477 10.896a4 4 0 0 1 .585-.396", key: "ql3yin" }],
+  ["path", { d: "M19.938 10.5a4 4 0 0 1 .585.396", key: "1qfode" }],
+  ["path", { d: "M6 18a4 4 0 0 1-1.967-.516", key: "2e4loj" }],
+  ["path", { d: "M19.967 17.484A4 4 0 0 1 18 18", key: "159ez6" }]
+]);
+const Eye = createLucideIcon("Eye", [
+  [
+    "path",
+    {
+      d: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",
+      key: "1nclc0"
+    }
+  ],
+  ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
+]);
+const LifeBuoy = createLucideIcon("LifeBuoy", [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m4.93 4.93 4.24 4.24", key: "1ymg45" }],
+  ["path", { d: "m14.83 9.17 4.24-4.24", key: "1cb5xl" }],
+  ["path", { d: "m14.83 14.83 4.24 4.24", key: "q42g0n" }],
+  ["path", { d: "m9.17 14.83-4.24 4.24", key: "bqpfvv" }],
+  ["circle", { cx: "12", cy: "12", r: "4", key: "4exip2" }]
+]);
+const Zap = createLucideIcon("Zap", [
+  [
+    "path",
+    {
+      d: "M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z",
+      key: "1xq2db"
+    }
+  ]
+]);
+const pillars = [{
+  icon: Zap,
+  title: "Speed",
+  desc: "We move fast without cutting corners. Most projects ship in weeks, not months."
+}, {
+  icon: Eye,
+  title: "Transparency",
+  desc: "Clear pricing, milestone updates, and no surprises. You always know where things stand."
+}, {
+  icon: Brain,
+  title: "Smart Solutions",
+  desc: "We choose the right tech for your business — not the trendiest. Outcomes over hype."
+}, {
+  icon: LifeBuoy,
+  title: "Long-Term Support",
+  desc: "Launch is just the start. We stick around to optimize, refine, and grow with you."
+}];
+function AboutPage() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-mesh py-32 md:py-40", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "container mx-auto px-6 max-w-4xl", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(FadeIn, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(SectionLabel, { children: "About Pixova" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "mt-6 font-display text-5xl md:text-7xl font-semibold tracking-tighter", children: [
+        "We are ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-gradient", children: "Pixova." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-lg text-muted-foreground leading-relaxed max-w-2xl", children: "Pixova is a small, focused team building practical technology for small businesses. We design, build, and automate — turning everyday operations into measurable growth." })
+    ] }) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Section, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-6 grid md:grid-cols-2 gap-16 items-start", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(FadeIn, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(SectionLabel, { children: "Our Mission" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-6 font-display text-4xl md:text-5xl font-semibold tracking-tight", children: "Empowering small businesses with enterprise-grade tech." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(FadeIn, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground leading-relaxed text-lg", children: "Big companies have always had access to powerful technology. We're here to level the playing field — building tools, sites, apps, and automations that help small teams compete with the giants." }) })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Section, { className: "bg-mesh", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(FadeIn, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(SectionLabel, { children: "Why Pixova" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-6 font-display text-4xl md:text-5xl font-semibold tracking-tight max-w-2xl", children: "Built on four pillars." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-16 grid sm:grid-cols-2 gap-6", children: pillars.map((p, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(FadeIn, { delay: i * 0.06, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-8 rounded-2xl border border-border bg-card glow-hover h-full", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(p.icon, { className: "h-8 w-8 text-accent" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "mt-6 font-display text-xl font-semibold", children: p.title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-3 text-sm text-muted-foreground leading-relaxed", children: p.desc })
+      ] }) }, p.title)) })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Section, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(FadeIn, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(SectionLabel, { children: "Team" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-6 font-display text-4xl md:text-5xl font-semibold tracking-tight", children: "The people behind Pixova." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-16 grid sm:grid-cols-2 md:grid-cols-4 gap-6", children: [["Founder", "CEO"], ["Lead Engineer", "Engineering"], ["Design Lead", "Design"], ["AI Engineer", "Automation"]].map(([name, role], i) => /* @__PURE__ */ jsxRuntimeExports.jsx(FadeIn, { delay: i * 0.05, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-6 rounded-2xl border border-border bg-card text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto h-24 w-24 rounded-full bg-gradient-to-br from-accent to-primary" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-5 font-display font-semibold", children: name }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-muted-foreground mt-1", children: role })
+      ] }) }, i)) })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CtaBanner, { title: "Have a project in mind? Let's talk about it.", cta: "Get In Touch" })
+  ] });
+}
+export {
+  AboutPage as component
+};
